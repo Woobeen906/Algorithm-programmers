@@ -1,14 +1,12 @@
 function solution(s) {
   var answer = -1;
 
-  let str = s.split("");
+  let str = [];
 
-  for (let i = 0; i < str.length - 1; i++) {
-    if (str[i] === str[i + 1]) {
-      str.splice(i, 2);
-      i = -1;
-    }
+  for (let i = 0; i < s.length; i++) {
+    if (!str.length || str[str.length - 1] !== s[i]) str.push(s[i]);
+    else str.pop();
   }
-  answer = str.length === 0 ? 1 : 0;
-  return answer;
+
+  return str.length === 0 ? 1 : 0;
 }
